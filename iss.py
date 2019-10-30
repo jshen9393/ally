@@ -17,7 +17,7 @@ def location():
 
     result = requests.get('http://api.open-notify.org/iss-now.json')
     j = json.loads(result.text)
-    if result.status_code not in (200,400):
+    if result.status_code not in (200, 400):
         print(error_message)
     elif j['message'] == 'failure':
         print(result.text['reason'] + ', please try again')
@@ -44,7 +44,7 @@ def pass_iss():
         LONG = j['request']['longitude']
         time = unix_to_date(j['response'][0]['risetime'])
         duration = j['response'][0]['duration']
-        print(f'The ISS will be overhead {LAT, LONG} at {time} for {duration}')
+        print(f'The ISS will be overhead {LAT, LONG} at {time} for {duration} seconds')
 
 
 def people():
